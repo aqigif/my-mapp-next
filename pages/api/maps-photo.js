@@ -15,8 +15,7 @@ export default async function handler(req, res) {
 
     axios.get(apiUrl, { responseType: 'arraybuffer' })
       .then((response) => {
-        res.set('Content-Type', 'image/jpeg');
-        res.send(Buffer.from(response.data, 'binary'));
+        res.status(200).send(Buffer.from(response.data, 'binary'));
       })
       .catch((error) => {
         console.error(error);
